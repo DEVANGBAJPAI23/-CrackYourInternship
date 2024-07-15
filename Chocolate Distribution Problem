@@ -1,0 +1,23 @@
+class Solution{
+    public:
+    long long findMinDiff(vector<long long> a, long long n, long long m){
+    //code
+    
+        sort(a.begin(), a.end());
+        int i = 0;
+        int j = 0;
+        long long ans = LLONG_MAX;
+        vector<long long>v;
+        while(i < n){
+            v.push_back(a[i]);
+            if(v.size() == m){
+                long long mini = v.back() - v[0];
+                ans = min(ans, mini);
+                v.erase(v.begin());
+                
+            }
+            i++;
+        }
+        return ans;
+    }   
+};
